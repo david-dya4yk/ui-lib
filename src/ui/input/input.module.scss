@@ -1,0 +1,64 @@
+.field {
+  position: relative;
+
+  &__input {
+    width: 100%;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    transition: border-color ease 0.3s, box-shadow ease 0.3s;
+    text-overflow: ellipsis;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+
+    &[type=number] {
+    -moz-appearance: textfield;
+  }
+
+    &:not(:disabled) {
+      &:hover,
+      &:focus, {
+        border-color: var(--color-primary-300);
+        box-shadow: 0 0 0 2px var(--color-primary-25);
+      }
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+
+  &__hasButton {
+    padding-right: 30px;
+  }
+
+  &__button {
+    position: absolute;
+    padding: 5px;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--color-primary-200);
+    color: #ffffff;
+    line-height: 0;
+    border-radius: 3px;
+    transition: background-color ease 0.3s, border-color ease 0.3s, box-shadow ease 0.3s;
+
+    &:not(:disabled) {
+      &:hover,
+      &:focus, {
+        border-color: var(--color-primary-300);
+        background-color: var(--color-primary-400);
+        box-shadow: 0 0 0 2px var(--color-primary-25);
+      }
+    }
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+}
