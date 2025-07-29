@@ -38,7 +38,7 @@
 
     &:not(:disabled) {
       &:hover,
-      &:focus, {
+      &:focus {
         border-color: var(--color-primary-300);
         background-color: var(--color-primary-400);
         box-shadow: 0 0 0 2px var(--color-primary-25);
@@ -61,14 +61,11 @@
   &-success {
     color: green;
   }
-
 }
-
 
 @keyframes toast-in {
   from {
     transform: translateY(200%);
-
   }
   to {
     transform: translateY(0);
@@ -78,7 +75,6 @@
 @keyframes toast-out {
   from {
     transform: translateY(0);
-
   }
   to {
     transform: translateY(-200%);

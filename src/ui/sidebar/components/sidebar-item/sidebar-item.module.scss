@@ -1,0 +1,30 @@
+.item {
+  color: #242424;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid var(--color-primary-200);
+  width: 100%;
+  transition: border-color 0.3s ease;
+
+  &:hover {
+    border-color: var(--color-primary-500);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  &__icon {
+    transition: transform 0.3s ease;
+    &.active {
+      transform: rotate(-180deg);
+    }
+  }
+
+  &__button {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

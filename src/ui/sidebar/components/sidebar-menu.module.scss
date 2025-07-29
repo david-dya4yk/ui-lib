@@ -1,0 +1,43 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #ffffff;
+  min-width: 200px;
+  height: 100%;
+  padding: 15px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+
+  &__open {
+    transform: translateX(0);
+  }
+
+  &__inner {
+    position: relative;
+  }
+
+  &__button {
+    padding: 10px;
+    position: absolute;
+    left: -15px;
+    top: -15px;
+    background-color: var(--color-primary-300);
+    color: #ffffff;
+    transform: translateX(-100%);
+    line-height: 0;
+    transition: background-color 0.3s ease;
+
+    &:not(:disabled) {
+      &:hover,
+      &:focus {
+        background-color: var(--color-primary-500);
+      }
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+}
