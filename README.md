@@ -78,6 +78,7 @@ Slide-in sidebar with nested accordion items
 Click outside to close
 Recursive structure via items prop
 
+```
 ![1]('https://github.com/david-dya4yk/ui-lib/blob/main/assets/1.png')
 ![2](./assets/2.png)
 ![3](./assets/3.png)
