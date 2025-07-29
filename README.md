@@ -1,69 +1,94 @@
-# React + TypeScript + Vite
+# 🧩 UI Library (`ui-lib`)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, reusable component library built with **React 19**, **TypeScript**, **Vite**, and **Storybook**.  
+Designed for scalability, documentation, and developer productivity.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- ✅ React 19 + TypeScript
+- 🎨 SCSS Modules for styling
+- 🧠 Component-based architecture
+- 📚 Integrated **Storybook** with Docs
+- ✨ Prettier + ESLint for code quality
+- 📦 Built using Vite (dev & build)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 📦 Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+```bash
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+git clone https://github.com/david-dya4yk/ui-lib.git
+cd ui-lib
+npm install
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x';
-import reactDom from 'eslint-plugin-react-dom';
+   Command                    Description                    
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
-```
+| `npm run dev`             | Run Vite dev server            |
+| `npm run build`           | Build library                  |
+| `npm run lint`            | Run ESLint                     |
+| `npm run format`          | Format code with Prettier      |
+| `npm run preview`         | Preview built project (Vite)   |
+| `npm run storybook`       | Start Storybook on port `6006` |
+| `npm run build-storybook` | Build static Storybook         |
+
+🧱 Components Overview
+
+✅ Input
+Custom input with optional clear button and password toggle
+Supports: text, password, number
+Props:
+isClearable?: boolean
+iconSize?: 's' | 'm' | 'l'
+
+🔔 Toast Usage
+To use the toast system in your app:
+
+1️⃣ Wrap your app with ToastProvider (usually in App.tsx or layout)
+import { ToastProvider } from '@/components/Toast';
+
+function App() {
+  return (
+    <ToastProvider>
+      <YourApp />
+    </ToastProvider>
+  );
+}
+2️⃣ Use useToast() wherever you want to show a toast
+import { useToast } from '@/components/Toast';
+
+const showToast = useToast(3000); // Optional: pass custom timing (ms)
+
+<button
+  onClick={() => {
+    showToast({
+      message: 'Action completed successfully!',
+      variant: 'success',     // e.g. success | error | info
+      shouldClose: true       // auto-remove after timeout
+    });
+  }}
+>
+  Show Toast
+</button>
+
+✅ SidebarMenu
+Slide-in sidebar with nested accordion items
+Click outside to close
+Recursive structure via items prop
+
+![1](./assets/1.png)
+![2](./assets/2.png)
+![3](./assets/3.png)
+![4](./assets/4.png)
+![5](./assets/5.png)
+![6](./assets/6.png)
+![7](./assets/7.png)
+![8](./assets/8.png)
+![9](./assets/9.png)
+![10](./assets/10.png)
+![11](./assets/11.png)
+![12](./assets/12.png)
+![13](./assets/13.png)
+
