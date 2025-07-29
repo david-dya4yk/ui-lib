@@ -1,6 +1,6 @@
-import { ToastItem } from './toast-item';
+import { ToastItem } from '../components/toast/toast-item/toast-item.tsx';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { ToastWrapper } from './toast-wrapper.tsx';
+import { Toast } from '../components/toast/toast.tsx';
 
 const meta: Meta<typeof ToastItem> = {
   title: 'UI/ToastItem',
@@ -8,9 +8,9 @@ const meta: Meta<typeof ToastItem> = {
   tags: ['autodocs'],
   decorators: [
     Story => (
-      <ToastWrapper>
+      <Toast>
         <Story />
-      </ToastWrapper>
+      </Toast>
     ),
   ],
 };

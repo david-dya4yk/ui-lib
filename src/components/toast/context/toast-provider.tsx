@@ -1,15 +1,15 @@
 import { type PropsWithChildren, type ReactElement, useState } from 'react';
 import { ToastContext } from './toast-context.tsx';
-import { ToastWrapper } from '../components/toast-wrapper.tsx';
-import { ToastItem } from '../components/toast-item.tsx';
-import type { Toast } from '../types/toast-type.ts';
+import { Toast } from '../toast.tsx';
+import { ToastItem } from '../toast-item/toast-item.tsx';
+import type {ToastInterface} from "../types/toast-interface.ts";
 
 export const ToastProvider = ({
   children,
 }: PropsWithChildren): ReactElement => {
-  const [toasts, setToasts] = useState<Toast[]>([]);
+  const [toasts, setToasts] = useState<ToastInterface[]>([]);
 
-  const addToast = (toast: Toast) => {
+  const addToast = (toast: ToastInterface) => {
     setToasts(prev => [...prev, toast]);
   };
 
@@ -20,7 +20,7 @@ export const ToastProvider = ({
   return (
     <ToastContext.Provider value={{ addToast, removeToast }}>
       {children}
-      <ToastWrapper>
+      <Toast>
         {toasts.map(toast => (
           <ToastItem
             key={toast.id}
@@ -30,7 +30,7 @@ export const ToastProvider = ({
             shouldClose={toast.shouldClose}
           />
         ))}
-      </ToastWrapper>
+      </Toast>
     </ToastContext.Provider>
   );
 };

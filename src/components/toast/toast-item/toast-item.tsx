@@ -2,7 +2,7 @@ import type { ReactElement } from 'react';
 import styles from './toast-item.module.scss';
 import cn from 'classnames';
 import { DynamicIcon, type IconName } from 'lucide-react/dynamic';
-import type { VariantType } from '../types/toast-type';
+import type { VariantType } from '../types/toast-interface.ts';
 
 interface ToastItemProps {
   shouldClose?: boolean;

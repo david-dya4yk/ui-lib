@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import type { Toast } from '../types/toast-type.ts';
-import { ToastContext } from '../context/toast-context.tsx';
+import type { ToastInterface } from '../components/toast/types/toast-interface.ts';
+import { ToastContext } from '../components/toast/context/toast-context.tsx';
 
 export const useToast = (timing: number = 4000) => {
   const context = useContext(ToastContext);
@@ -8,7 +8,7 @@ export const useToast = (timing: number = 4000) => {
 
   const { addToast, removeToast } = context;
 
-  return ({ message, variant, shouldClose }: Omit<Toast, 'id'>) => {
+  return ({ message, variant, shouldClose }: Omit<ToastInterface, 'id'>) => {
     const id = Math.random().toString(36).substring(2, 9);
 
     addToast({ id, message, variant, shouldClose });
