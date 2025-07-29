@@ -1,0 +1,86 @@
+.item {
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 16px;
+  max-width: 300px;
+  padding: 10px 25px 10px 10px;
+  border-radius: 6px;
+  animation: toast-in 0.5s forwards;
+  border: 3px solid transparent;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  position: relative;
+  display: grid;
+  grid-template-columns: 15px 1fr;
+  grid-column-gap: 5px;
+  align-items: center;
+
+  &__default {
+    border-color: gray;
+  }
+
+  &__warning {
+    border-color: red;
+  }
+
+  &__success {
+    border-color: green;
+  }
+
+  &__close {
+    padding: 0;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    border-radius: 50%;
+    line-height: 0;
+    background-color: var(--color-primary-200);
+    color: #ffffff;
+
+    &:not(:disabled) {
+      &:hover,
+      &:focus, {
+        border-color: var(--color-primary-300);
+        background-color: var(--color-primary-400);
+        box-shadow: 0 0 0 2px var(--color-primary-25);
+      }
+    }
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+
+  &-default {
+    color: gray;
+  }
+
+  &-warning {
+    color: red;
+  }
+
+  &-success {
+    color: green;
+  }
+
+}
+
+
+@keyframes toast-in {
+  from {
+    transform: translateY(200%);
+
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes toast-out {
+  from {
+    transform: translateY(0);
+
+  }
+  to {
+    transform: translateY(-200%);
+  }
+}
